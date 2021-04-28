@@ -20,6 +20,8 @@ export const FormContext = React.createContext({
     updateField: (fld, updatedProperties) => {},
     onSubmitHandler: (e) => {},
     reset: () => {},
+    result: () => {},
+    resultSuccess: () => {},
     validateAll: () => {}
 });
 
@@ -189,6 +191,19 @@ const FormContextProvider = props => {
         }
     };
 
+
+
+    const result = useCallback(() => {
+        if (response && response.hasOwnProperty('res'))
+            return response.res;
+        else return  null;
+    }, [response]);
+
+    const resultSuccess = useCallback(() => {
+        return (response && response.hasOwnProperty('res') && response.res === "1");
+    }, [response]);
+
+
     const reset = useCallback(() => {
         setError(null);
         setResponse(null);
@@ -215,6 +230,8 @@ const FormContextProvider = props => {
                 updateField: updateField,
                 onSubmitHandler: onSubmitHandler,
                 reset: reset,
+                result: result,
+                resultSuccess: resultSuccess,
                 validateAll: validateAll
             }}
         >
