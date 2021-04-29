@@ -194,13 +194,13 @@ const FormContextProvider = props => {
 
 
     const result = useCallback(() => {
-        if (response && response.hasOwnProperty('res'))
-            return response.res;
+        if (response && response.data.hasOwnProperty('res'))
+            return response.data.res;
         else return  null;
     }, [response]);
 
     const resultSuccess = useCallback(() => {
-        return (response && response.hasOwnProperty('res') && response.res === "1");
+        return (response && response.data.hasOwnProperty('res') && response.data.res === 1);
     }, [response]);
 
 
