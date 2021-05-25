@@ -118,6 +118,7 @@ export const FormContext = React.createContext({
     response: null,
     error: null,
     loadData: (data) => {},
+    loadDataFrom: (url, params) => {},
     updateDataSet: (newData) => {},
     updateDataStructure: (newDataStructure) => {},
     inputChangedHandler: (fld, val) => {},

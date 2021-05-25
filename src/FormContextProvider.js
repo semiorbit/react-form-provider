@@ -1,7 +1,7 @@
 import React, {useCallback, useReducer, useState} from 'react';
 import {updateObject} from "./dataSetTools";
 import {checkValidity, IS_VALID} from "./validation";
-import {apiSubmitFormPost} from "@semiorbit/api-central";
+import {apiSubmitFormPost, apiCall} from "@semiorbit/api-central";
 
 
 export const FormContext = React.createContext({
@@ -13,6 +13,7 @@ export const FormContext = React.createContext({
     response: null,
     error: null,
     loadData: (data) => {},
+    loadDataFrom: (url, params) => {},
     updateDataSet: (newData) => {},
     updateDataStructure: (newDataStructure) => {},
     inputChangedHandler: (fld, val) => {},
@@ -49,7 +50,7 @@ const FormContextProvider = props => {
                 [action.fld]: updatedElem
             });
         } else {
-            newDs = updateObject(state, props);
+            newDs = updateObject(state, action.props);
         }
 
         setFormIsValid(dataSetIsValid(newDs));
@@ -174,6 +175,19 @@ const FormContextProvider = props => {
     };
 
 
+    const loadDataFrom = (url, params) => {
+        apiCall(url, params).then(
+            response => {
+                loadData(response.data)
+            }
+        ).catch(
+            () => {
+                reset();
+            }
+        )
+    };
+
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if ((!formIsSubmitting) && validateAll()) {
@@ -223,6 +237,7 @@ const FormContextProvider = props => {
                 response: response,
                 error: error,
                 loadData: loadData,
+                loadDataFrom: loadDataFrom,
                 updateDataSet: updateDataSet,
                 updateDataStructure: updateDataStructure,
                 inputChangedHandler: inputChangedHandler,
