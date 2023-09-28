@@ -1,6 +1,6 @@
 {
   "name": "@semiorbit/react-form-provider",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "React Form Provider",
   "main": "index.js",
   "type": "module",
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "npm run v && npm i && rollup -c",
-    "v": "npm version patch --force && cd lib && npm version patch --force && cp README.md lib/README.md",
+    "v": "npm version patch --force && cd lib && npm version patch --force",
     "publish": "npm publish lib --access public"
   },
   "eslintConfig": {
