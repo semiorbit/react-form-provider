@@ -6,7 +6,7 @@ import list from './modules.json' assert {type: 'json'};
 
 const defineEntryPoint = (component) => {
     const src = `src/${component}.js`;
-    const output = `lib/${component}.js`;
+    const output = `dist/${component}.js`;
     return {
         input: src,
         output: {file: output, format: 'esm', name: component},

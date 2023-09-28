@@ -1,0 +1,52 @@
+{
+  "name": "@semiorbit/react-form-provider",
+  "version": "1.1.23",
+  "description": "React Form Provider",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semiorbit/react-form-provider.git"
+  },
+  "keywords": [
+    "React",
+    "Form",
+    "Context Provider",
+    "DataSet",
+    "Validation"
+  ],
+  "author": "Ibrahim Khalil Khalbous",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run v && npm i && rollup -c",
+    "v": "npm version patch --force && cd dist && npm version patch --force",
+    "publish": "npm publish --access public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@rollup/plugin-babel": "^6.0.3",
+    "react-scripts": "5.0.1",
+    "rollup": "^3.29.4",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "babel-plugin-module-resolver": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2",
+    "@semiorbit/api-central": ">=1.0.2",
+    "react-i18next": ">=13.2.2"
+  }
+}
