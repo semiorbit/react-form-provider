@@ -1,8 +1,14 @@
 # Semiorbit Form Provider
 
+### Install
+
+```shell
+npm i @semiorbit/react-form-provider
+```
+
 ### Usage
 
-1- Create DataSet object where data will be stored:
+1- **Create DataSet object** where data will be stored:
 
 ```javascript
 export const myDataSet = {
@@ -13,7 +19,7 @@ export const myDataSet = {
 };
 ```
 
-2- Describe DataSet in a Structure object as follows:
+2- Describe DataSet in a **Structure object** as follows:
 
 ```javascript
 export const myDataSetStructure = {
@@ -37,7 +43,7 @@ export const myDataSetStructure = {
 ```
 
 
-3- Create react "container", and use context provider to link form:
+3- Create react **"container"**, and use context provider to link form:
 
 ```javascript
 function MyEditFromContainer() {
@@ -65,7 +71,7 @@ export default withFormProvider(
 );
 ```
 
-4- Finally, create form view:
+4- Finally, create **form view**:
 
 ```javascript
 const MyEditForm = props => {
