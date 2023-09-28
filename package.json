@@ -1,6 +1,6 @@
 {
   "name": "@semiorbit/react-form-provider",
-  "version": "1.1.20",
+  "version": "1.1.21",
   "description": "React Form Provider",
   "main": "index.js",
   "type": "module",
